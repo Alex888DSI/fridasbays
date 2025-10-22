@@ -1,0 +1,14 @@
+<h1>Crear Usuario</h1>
+<form method="POST">
+  {% csrf_token %}
+  <label>Username:</label><input name="username"><br>
+  <label>Email:</label><input name="email"><br>
+  <label>Password:</label><input name="password" type="password"><br>
+  <label>Rol:</label>
+  <select name="rol">
+    <option value="cliente">Cliente</option>
+    <option value="admin">Administrador</option>
+    <option value="empleado">Empleado</option>
+  </select><br>
+  <button type="submit">Guardar</button>
+</form>

@@ -1,0 +1,24 @@
+<h1>Prueba de plantilla cargada</h1>
+{% if usuarios %}
+    <p>Hay usuarios cargados.</p>
+{% else %}
+    <p>No hay usuarios registrados aún.</p>
+{% endif %}
+
+<h1>Lista de Usuarios</h1>
+<a href="{% url 'crear_usuario' %}">➕ Crear Usuario</a>
+<table border="1">
+  <tr><th>ID</th><th>Username</th><th>Email</th><th>Rol</th><th>Acciones</th></tr>
+  {% for u in usuarios %}
+  <tr>
+    <td>{{ u.id }}</td>
+    <td>{{ u.username }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.rol }}</td>
+    <td>
+      <a href="{% url 'editar_usuario' u.id %}">Editar</a>
+      <a href="{% url 'eliminar_usuario' u.id %}">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
